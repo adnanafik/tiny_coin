@@ -20,7 +20,7 @@ def main():
 
     my_simple_chain.print_chain_data()
 
-    if(my_simple_chain.validate() == 0):
+    if(my_simple_chain.is_valid()):
         print('Hurray chain is valid...')
     else:
         print('Chain has been compromised!!!!')
