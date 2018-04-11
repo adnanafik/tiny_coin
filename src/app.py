@@ -6,6 +6,7 @@ import random
 import uuid
 import json
 import requests
+import os
 
 from block.block import Block
 from chain.chain import Chain
@@ -14,8 +15,24 @@ from utils.utils import *
 
 node = Flask(__name__)
 
-#this node random miner address
-miner_address = uuid.uuid4()
+#private_key = os.urandom(32).hex()
+this_node_private_hex_key = os.urandom(32).hex()
+print('my private key={}'.format(this_node_private_hex_key))
+
+#get signing key
+signing_key = get_signing_key(this_node_private_hex_key)
+
+#get signing key
+verifying_public_key = get_verifying_public_key(this_node_private_hex_key,
+                                                signing_key)
+
+#this node bitcoin compatibe address
+miner_address = create_bitcoin_compatible_address(this_node_private_hex_key,
+                                                   signing_key,
+                                                   verifying_public_key)
+
+print('miner address ={}, signing_key={}, verifying_key={}'.format(
+miner_address, signing_key, verifying_public_key.hex()))
 
 # store this node transactions in a list
 this_nodes_transactions = []
@@ -37,6 +54,7 @@ def send_mined_block_to_other_nodes(mined_block):
 
   for node_url in peer_nodes:
     url_to_post = node_url + '/block'
+    print('sending mined blocks to node={}'.format(url_to_post))
     # Post this node block chain to the newly added peer
     res = requests.post(url_to_post,
                     json=mined_block.to_json())
@@ -181,6 +199,13 @@ def mine():
 
     this_nodes_transactions.append(
         { 'from': 'network', 'to': str(miner_address), 'amount': 1 }
+    )
+    last_transaction = this_nodes_transactions[-1]
+
+    signature = signing_key.sign(str(last_transaction).encode('ascii'))
+
+    this_nodes_transactions.append(
+        { 'signature': signature.hex(), 'public key': verifying_public_key.hex() }
     )
 
      # Now we can gather the data needed
