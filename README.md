@@ -15,7 +15,7 @@ To mine a Tinycoin on node running at 127.0.0.1:5000 use the following
 
 http://127.0.0.1:5000/mine
 
-Following is the typical mined Tinycoin block!
+Following is a typical mined Tinycoin block!
 
 ```json
 {
