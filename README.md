@@ -13,6 +13,8 @@ To mine a Tinycoin on node running at 127.0.0.1:5000 use the following
 http://127.0.0.1:5000/mine
 
 Following is the typical mined Tinycoing block!
+
+```json
 {
     "target_hash": "fa2109d2e397f8d57799f2c364f3ef3d3bdfbc309457b9630ac14d427150f659",
     "hash": "4038a907f335dd008418664d90c31097d54637544f27fa7172baa5709ee6b634",
@@ -35,4 +37,5 @@ Following is the typical mined Tinycoing block!
     },
     "previous_hash": "288c6451191f17e767ea14d6b00da1c1be209c2732f964b995621d010bd8445e"
 }
+```
 
