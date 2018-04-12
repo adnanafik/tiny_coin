@@ -47,7 +47,7 @@ http://127.0.0.1:5000/mine
 
 http://127.0.0.1:5000/blocks
 
-#### A typical response from the node that have multiple Tinycoins mined!
+#### A typical response from the node that has multiple Tinycoins mined!
 
 ```json
 [
