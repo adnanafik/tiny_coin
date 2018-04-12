@@ -1,21 +1,23 @@
 # TinyCoin
 Tiny coin in Python is an enhanced version which originally was inspired by Gerald Nash sample code at https://gist.github.com/aunyks/47d157f8bc7d1829a729c2a6a919c173
 
-To run nodes on multiple port use the following, default is 127.0.0.1:5000
+## Usage
+
+### To run nodes on multiple port use the following, default is 127.0.0.1:5000
 
 python app.py --host 127.0.0.1 --port 5001 --debug
 
 python app.py --host 127.0.0.1 --port 5002 --debug
 
-To add peer to an existing node e.g. 127.0.0.0:5000 use the following 
+### To add peer to an existing node e.g. 127.0.0.0:5000 use the following 
 
 http://127.0.0.1:5000/peer?node_url=http://127.0.0.1:5001
 
-To mine a Tinycoin on node running at 127.0.0.1:5000 use the following
+### To mine a Tinycoin on node running at 127.0.0.1:5000 use the following
 
 http://127.0.0.1:5000/mine
 
-Following is a typical mined Tinycoin block!
+#### Following is a typical mined Tinycoin block!
 
 ```json
 {
@@ -41,11 +43,11 @@ Following is a typical mined Tinycoin block!
     "previous_hash": "288c6451191f17e767ea14d6b00da1c1be209c2732f964b995621d010bd8445e"
 }
 ```
-To get all the Tinycoins of a given node use the following
+### To get all the Tinycoins of a given node use the following
 
 http://127.0.0.1:5000/blocks
 
-A typical response from the node that have multiple Tinycoins mined!
+#### A typical response from the node that have multiple Tinycoins mined!
 
 ```json
 [
