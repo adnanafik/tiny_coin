@@ -8,6 +8,7 @@ python app.py --host 127.0.0.1 --port 5001 --debug
 python app.py --host 127.0.0.1 --port 5002 --debug
 
 To add peer to an existing node e.g. 127.0.0.0:5000 use the following 
+
 http://127.0.0.1:5000/peer?node_url=http://127.0.0.1:5001
 
 To mine a Tinycoin on node running at 127.0.0.1:5000 use the following
