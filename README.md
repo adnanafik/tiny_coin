@@ -2,6 +2,7 @@
 Tiny coin in Python is an enhanced version which originally was inspired by Gerald Nash sample code at https://gist.github.com/aunyks/47d157f8bc7d1829a729c2a6a919c173
 
 To run nodes on multiple port use the following, default is 127.0.0.1:5000
+
 python app.py --host 127.0.0.1 --port 5001 --debug
 python app.py --host 127.0.0.1 --port 5002 --debug
 
